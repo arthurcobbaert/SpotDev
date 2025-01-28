@@ -19,7 +19,7 @@ const divTitulo_albuns = document.getElementById('titulo-albuns')
 musicas.map(element => {
     divMusicas.innerHTML += `   
        <div class='col-sm-12 col-md-6 col-lg-3'>
-        <div class='card mb-2'> 
+        <div class='card mb-2 divs-musica'> 
             <img class="thumb" src="${element.imagem}" alt=""> 
             <h2>${element.nome}</h2>
             <p>${element.artista}, ${element.album}</p>
@@ -32,6 +32,16 @@ musicas.map(element => {
        </div>
     `
 });
+
+const divsMusica = document.querySelectorAll('.divs-musica')
+
+divsMusica.forEach((div, index) => {
+    div.addEventListener('click', () => {
+        
+        window.location.href = `/musicas.html?nome_musica=${musicas[index].nome}`
+    })
+});
+
 
 albuns.map(element => {
     divAlbuns.innerHTML += `
